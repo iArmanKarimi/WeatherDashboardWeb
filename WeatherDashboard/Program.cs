@@ -1,10 +1,11 @@
-using WeatherDashboard.Services;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddHttpClient<WeatherService>();
+builder.Services.AddHttpClient<WeatherService>(client =>
+{
+    client.DefaultRequestHeaders.Add("User-Agent", "WeatherDashboardApp/1.0");
+});
 
 var app = builder.Build();
 
