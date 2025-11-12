@@ -1,0 +1,20 @@
+﻿@page
+@using WeatherDashboard.Pages
+@model IndexModel
+<link rel="stylesheet" href="~/css/site.css" />
+
+<div class="card">
+    <form method="post">
+        <input type="text" name="City" placeholder="Enter city" />
+        <button type="submit">Get Weather</button>
+    </form>
+
+    @if (Model.Weather != null)
+    {
+        <h2>@Model.Weather.City</h2>
+        <p>@Model.Weather.TemperatureC°C</p>
+        <p>@Model.Weather.Condition</p>
+        <p>Humidity: @Model.Weather.Humidity%</p>
+        <p>Wind: @Model.Weather.WindSpeed km/h</p>
+    }
+</div>
